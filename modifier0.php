@@ -6,9 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_apprenant = $_POST["idapprenant"];
     $nouveau_nom = $_POST["nomapprenant"];
     $nouveau_prenom = $_POST["prenomapprenant"];
+    $nouveau_email = $_POST["email"];
 
     // Requête SQL préparée pour mettre à jour le nom et le prénom de l'apprenant
-    $sql = "UPDATE apprenants SET prenomapprenant = :nouveau_prenom, nomapprenant = :nouveau_nom WHERE idapprenant = :id_apprenant";
+    $sql = "UPDATE apprenants SET prenomapprenant = :nouveau_prenom, nomapprenant = :nouveau_nom, email = :nouveau_email WHERE idapprenant = :id_apprenant";
 
     // Préparation de la requête
     $query = $connexion->prepare($sql);
@@ -17,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query->bindParam(':nouveau_prenom', $nouveau_prenom, PDO::PARAM_STR);
     $query->bindParam(':nouveau_nom', $nouveau_nom, PDO::PARAM_STR);
     $query->bindParam(':id_apprenant', $id_apprenant, PDO::PARAM_INT);
+    $query->bindParam(':nouveau_email', $nouveau_email, PDO::PARAM_STR);
 
     if ($query->execute()) {
     echo '<div class="container">';

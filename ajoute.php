@@ -67,6 +67,9 @@
         <label for="prenomapprenant">Prénom de l'apprenant:</label>
         <input type="text" name="prenomapprenant" required>
 
+        <label for="email">Adresse email:</label>
+        <input type="text" name="email" required>
+
         <input type="submit" value="Ajouter l'apprenant">
     </form>
 </body>

@@ -100,6 +100,10 @@
                     <label for="prenom">Nouveau prénom :</label>
                     <input type="text" class="form-control" name="prenomapprenant" value="<?php echo htmlspecialchars($row["prenomapprenant"]); ?>">
                 </div>
+                <div class="form-group">
+                    <label for="email">Nouveau email :</label>
+                    <input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($row["email"]); ?>">
+                </div>
                 <input type="submit" class="btn btn-primary" value="Modifier">
             </form>
         <?php
