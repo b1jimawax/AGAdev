@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/dist/css/bootstrap.min.css">
     <title>Modifier un apprenant</title>
     <style>
         body {
@@ -90,7 +90,7 @@
             $row = $query->fetch(PDO::FETCH_ASSOC);
         ?>
             <h2>Modifier un apprenant</h2>
-            <form method="post" action="modifier0.php">
+            <form method="post" action="../vue/modifier0.php">
                 <input type="hidden" name="idapprenant" value="<?php echo htmlspecialchars($row["idapprenant"]); ?>">
                 <div class="form-group">
                     <label for="nom">Nouveau nom :</label>

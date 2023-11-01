@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Authentification réussie
         echo "Authentification réussie. Vous êtes connecté en tant qu'administrateur.";
         // Vous pouvez rediriger l'administrateur vers une page d'administration ici.
-        header("Location: listeApprenant.php"); // Redirige vers la page du tableau de bord 
+        header("Location: ../vue/listeApprenant.php"); // Redirige vers la page du tableau de bord 
     } else {
         // Authentification échouée
         echo "Nom d'utilisateur ou mot de passe incorrect.";

@@ -8,7 +8,7 @@ if(isset($_POST['btnAjout']))
     $email = $_POST["email"];
 
     $photo = $_FILES["img"]["name"];
-    $upload = "picture/".$photo;
+    $upload = "../assets/dist/picture/".$photo;
 
     move_uploaded_file($_FILES["img"]["tmp_name"], $upload);
 
@@ -21,7 +21,7 @@ if(isset($_POST['btnAjout']))
     // Exécution de la requête en liant les paramètres
     if ($stmt->execute([$prenom, $nom, $email, $photo])) {
         echo "Apprenant enregistré avec succès dans la base de données";
-        header("Location: listeApprenant.php");
+        header("Location: ../vue/listeApprenant.php");
     } else {
         $errorInfo = $stmt->errorInfo();
         echo "Erreur lors de l'ajout de l'apprenant : " . $errorInfo[2];

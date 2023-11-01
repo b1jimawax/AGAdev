@@ -12,7 +12,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     if ($query->execute()) {
         // Rediriger l'utilisateur vers la page de liste des apprenants après la suppression
-        header("Location: listeApprenant.php");
+        header("Location: ../vue/listeApprenant.php");
         exit; // Arrêter le script après la redirection
     } else {
         // En cas d'échec de la suppression
