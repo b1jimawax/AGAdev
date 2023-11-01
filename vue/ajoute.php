@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
+<?php
+include("../Controllers/uplead_image.php");
+?>    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/dist/css/bootstrap.min">
+    <link rel="stylesheet" href="../assets/dist/css/bootstrap.min">
     <title>Ajouter un apprenant</title>
     <style>
         body {
@@ -60,7 +63,7 @@
 </head>
 <body>
     <h2>Ajouter un apprenant</h2>
-    <form method="post" action="uplead_image.php" enctype="multipart/form-data">
+    <form method="post" action="../controllers/uplead_image.php" enctype="multipart/form-data">
         <label for="nomapprenant">Nom de l'apprenant:</label>
         <input type="text" name="nomapprenant" required>
 

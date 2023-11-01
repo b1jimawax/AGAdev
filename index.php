@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+include("Controllers/connexion.php");
+include("Controllers/connexion_admin.php");
+?>   
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +16,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
+            /* background-color: #f0f2f5; */
             padding-top:100px;
         }
 
@@ -65,9 +68,9 @@
     </style>
 </head>
 
-<body>
-    <h2>Connexion de l'Administrateur</h2><br>
-    <form action="connexion_admin.php" method="post">
+<body style="background-image: url(assets/dist/picture/fabrique.jpg);background-position: center;background-size: cover;";>
+    <h2 style="color:white;">Connexion de l'Administrateur</h2><br>
+    <form action="controllers/connexion_admin.php" method="post">
         <div>
             <label for="nom">Nom d'Utilisateur:</label>
             <input type="text" id="nom" name="nom" required>

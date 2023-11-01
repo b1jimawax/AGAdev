@@ -1,6 +1,6 @@
 <?php
 // Inclure le fichier de connexion à la base de données (connexion.php)
-include("connexion.php");
+include("../controllers/connexion.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_apprenant = $_POST["idapprenant"];
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/dist/css/bootstrap.min">
+    <link rel="stylesheet" href="../assets/dist/css/bootstrap.min">
     <title>Mise à jour</title>
 </head>
 <body>
