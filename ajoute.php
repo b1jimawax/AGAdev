@@ -60,7 +60,7 @@
 </head>
 <body>
     <h2>Ajouter un apprenant</h2>
-    <form method="post" action="ajout0.php">
+    <form method="post" action="uplead_image.php" enctype="multipart/form-data">
         <label for="nomapprenant">Nom de l'apprenant:</label>
         <input type="text" name="nomapprenant" required>
 
@@ -70,7 +70,10 @@
         <label for="email">Adresse email:</label>
         <input type="text" name="email" required>
 
-        <input type="submit" value="Ajouter l'apprenant">
+        <label for="img">Photo de l'apprenant:</label>
+        <input type="file" name="img" required>
+
+        <input type="submit" name="btnAjout" value="Ajouter l'apprenant">
     </form>
 </body>
 </html>
