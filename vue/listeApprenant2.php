@@ -20,8 +20,11 @@ if ($resultat->rowCount() > 0) {
 </head>
 
 <body>
-    <div class="container mt-5"><img src="../assets/dist/picture/agadev1.png" width=100 height=100 class="img-fluid" alt="hero">
-        <h2 class="text-center">Liste des Apprenants</h2>
+    <div class="container mt-5">
+    <div class="conte" style="display:flex;justify-content: space-between;align-items: center;">
+        <img src="../assets/dist/picture/agadev1.png" width=100 height=100 class="img-fluid" alt="hero">
+        <h2 class="text-center">Binevenue Apprenant </h2>
+        </div>
         <!-- <a class="btn btn-success d-block mx-auto my-4" href="ajoute.php"><i class="glyphicon glyphicon-user"></i>   Ajouter un apprenant</a> -->
     <table class="table table-striped table-hover">
         <thead class="table-light">
