@@ -22,7 +22,8 @@ include("../Controllers/uplead_image.php");
         }
 
         form {
-            max-width: 300px;
+            text-align: left;
+            max-width: 400px;
             margin: 0 auto;
             padding: 20px;
             background-color: #fff;
@@ -74,7 +75,7 @@ include("../Controllers/uplead_image.php");
         <input type="text" name="email" required>
 
         <label for="img">Photo de l'apprenant:</label>
-        <input type="file" name="img" required>
+        <input type="file" name="img" required><br><br>
 
         <input type="submit" name="btnAjout" value="Ajouter l'apprenant">
     </form>
