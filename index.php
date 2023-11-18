@@ -5,25 +5,25 @@ include("Controllers/connexion.php");
 include("Controllers/connexion_admin.php");
 ?>   
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap core CSS -->
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Formulaire de Connexion de l'Administrateur</title>
+    <title>Formulaire de Connexion</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: ;
             /* background-color: #f0f2f5; */
-            padding-top:100px;
+            padding-top: 100px;
         }
 
         h2 {
             font-size: 24px;
             color: #;
-            text-align:center;
+            text-align: center;
         }
 
         form {
@@ -65,11 +65,27 @@ include("Controllers/connexion_admin.php");
         input[type="submit"]:hover {
             background-color: #1155cc;
         }
+
+        .pulse {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 
-<body style="background-image: url(assets/dist/picture/fabrique.jpg);background-position: center;background-size: cover;";>
-    <h2 style="color:white;">Connexion de l'Administrateur</h2><br>
+<body style="background-image: url(assets/dist/picture/fabrique.jpg); background-position: center; background-size: cover;">
+    <h2 style="color:white;">AUTHENTIFICATION</h2><br>
     <form action="controllers/connexion_admin.php" method="post">
         <div>
             <label for="nom">Nom d'Utilisateur:</label>
@@ -80,12 +96,21 @@ include("Controllers/connexion_admin.php");
             <input type="password" id="pwd" name="pwd" required>
         </div><br>
         <div>
-           <input type="submit" value="Se Connecter">
+            <input type="submit" value="Se Connecter">
         </div>
     </form>
+    <div class="container">
+    <img src="./assets/dist/picture/agadev1.png" class="pulse" width=200 height=100 alt=""></div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script>
+        // JavaScript pour ajouter la classe 'pulse' après le chargement de la page
+        document.addEventListener("DOMContentLoaded", function() {
+            var img = document.querySelector('.pulse');
+            img.classList.add('pulse');
+        });
+    </script>
 </body>
-
 </html>

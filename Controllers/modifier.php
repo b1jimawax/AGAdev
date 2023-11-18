@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/dist/css/bootstrap.min.css">
-    <title>Modifier un apprenant</title>
+    <title>Modifier apprenant</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,7 +23,7 @@
         }
 
         form {
-            max-width: 400px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             background-color: #fff;
@@ -89,22 +89,21 @@
         if ($query->rowCount() == 1) {
             $row = $query->fetch(PDO::FETCH_ASSOC);
         ?>
-            <h2>Modifier un apprenant</h2>
+            <h2>Modifier les informations de <?php echo htmlspecialchars($row["nomapprenant"]); ?> </h2>
             <form method="post" action="../vue/modifier0.php">
+                <div class="row">
+                <div class="col">
                 <input type="hidden" name="idapprenant" value="<?php echo htmlspecialchars($row["idapprenant"]); ?>">
-                <div class="form-group">
-                    <label for="nom">Nouveau nom :</label>
-                    <input type="text" class="form-control" name="nomapprenant" value="<?php echo htmlspecialchars($row["nomapprenant"]); ?>">
+                <input type="text" class="form-control" name="nomapprenant" value="<?php echo htmlspecialchars($row["nomapprenant"]); ?>">
+                <input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($row["email"]); ?>">
                 </div>
-                <div class="form-group">
-                    <label for="prenom">Nouveau prénom :</label>
-                    <input type="text" class="form-control" name="prenomapprenant" value="<?php echo htmlspecialchars($row["prenomapprenant"]); ?>">
+                <div class="col">
+                <input type="text" class="form-control" name="prenomapprenant" value="<?php echo htmlspecialchars($row["prenomapprenant"]); ?>">
+                <input type="text" class="form-control" name="phone" value="<?php echo htmlspecialchars($row["phone"]); ?>">
+                <input type="file" class="form-control" name="photo" value="<?php echo htmlspecialchars($row["photo"]); ?>">
                 </div>
-                <div class="form-group">
-                    <label for="email">Nouveau email :</label>
-                    <input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($row["email"]); ?>">
-                </div>
-                <input type="submit" class="btn btn-primary" value="Modifier">
+                <br>
+                <input type="submit" class="btn btn-primary" value="Modifier" style="margin-top:10px;">
             </form>
         <?php
         } else {
@@ -113,5 +112,7 @@
         ?>
     </div>
 </body>
+
+</div>
 
 </html>
