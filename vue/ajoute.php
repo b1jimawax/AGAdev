@@ -74,6 +74,9 @@ include("../Controllers/uplead_image.php");
         <label for="email">Adresse email:</label>
         <input type="text" name="email" required>
 
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" required>
+
         <label for="img">Photo de l'apprenant:</label>
         <input type="file" name="img" required><br><br>
 

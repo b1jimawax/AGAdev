@@ -16,8 +16,9 @@ include("Controllers/connexion_admin.php");
     <style>
         body {
             font-family: ;
-            /* background-color: #f0f2f5; */
             padding-top: 100px;
+            overflow: hidden;
+            transition: background-color 1s ease; /* Transition de couleur de fond */
         }
 
         h2 {
@@ -66,25 +67,37 @@ include("Controllers/connexion_admin.php");
             background-color: #1155cc;
         }
 
-        .pulse {
-            animation: pulse 1s infinite;
+        img {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            animation: bounce 1s infinite, zoom 1s infinite;
         }
 
-        @keyframes pulse {
-            0% {
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes zoom {
+            0%, 100% {
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
+                transform: scale(1.2);
             }
         }
     </style>
 </head>
 
-<body style="background-image: url(assets/dist/picture/fabrique.jpg); background-position: center; background-size: cover;">
+<body>
     <h2 style="color:white;">AUTHENTIFICATION</h2><br>
     <form action="controllers/connexion_admin.php" method="post">
         <div>
@@ -100,16 +113,27 @@ include("Controllers/connexion_admin.php");
         </div>
     </form>
     <div class="container">
-    <img src="./assets/dist/picture/agadev1.png" class="pulse" width=200 height=100 alt=""></div>
-    
+        <img src="./assets/dist/picture/agadev1.png" alt="">
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
     <script>
-        // JavaScript pour ajouter la classe 'pulse' après le chargement de la page
+        // JavaScript pour changer la couleur de fond progressivement toutes les 3 secondes
+        function changeBackgroundColor() {
+            var colors = ["#1abc9c", "#3498db", "#9b59b6", "#e74c3c", "#f39c12"]; // Ajoutez les couleurs que vous souhaitez
+
+            TweenMax.to("body", 3, {
+                backgroundColor: colors[Math.floor(Math.random() * colors.length)],
+                onComplete: function() {
+                    setTimeout(changeBackgroundColor, 1000);
+                }
+            });
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
-            var img = document.querySelector('.pulse');
-            img.classList.add('pulse');
+            changeBackgroundColor();
         });
     </script>
 </body>

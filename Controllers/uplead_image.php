@@ -5,6 +5,7 @@ if(isset($_POST['btnAjout']))
 {
     $prenom = $_POST["prenomapprenant"];
     $nom = $_POST["nomapprenant"];
+    $phone = $_POST["phone"];
     $email = $_POST["email"];
 
     $photo = $_FILES["img"]["name"];
@@ -13,13 +14,13 @@ if(isset($_POST['btnAjout']))
     move_uploaded_file($_FILES["img"]["tmp_name"], $upload);
 
     // Requête SQL pour insérer l'apprenant dans la base de données
-    $sql = "INSERT INTO apprenants (prenomapprenant, nomapprenant, email, photo) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO apprenants (prenomapprenant, nomapprenant,phone, email, photo) VALUES (?, ?, ?, ?, ?)";
     
     // Préparation de la requête
     $stmt = $connexion->prepare($sql);
     
     // Exécution de la requête en liant les paramètres
-    if ($stmt->execute([$prenom, $nom, $email, $photo])) {
+    if ($stmt->execute([$prenom, $nom, $email, $phone, $photo])) {
         echo "Apprenant enregistré avec succès dans la base de données";
         header("Location: ../vue/listeApprenant.php");
     } else {
