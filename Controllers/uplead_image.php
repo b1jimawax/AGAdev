@@ -3,10 +3,10 @@ require "connexion.php";
 
 if(isset($_POST['btnAjout']))
 {
-    $prenom = $_POST["prenomapprenant"];
-    $nom = $_POST["nomapprenant"];
-    $phone = $_POST["phone"];
+    $prenom = $_POST["nomapprenant"];
+    $nom = $_POST["prenomapprenant"];
     $email = $_POST["email"];
+    $phone = $_POST["phone"];
 
     $photo = $_FILES["img"]["name"];
     $upload = "../assets/dist/picture/".$photo;
@@ -14,7 +14,7 @@ if(isset($_POST['btnAjout']))
     move_uploaded_file($_FILES["img"]["tmp_name"], $upload);
 
     // Requête SQL pour insérer l'apprenant dans la base de données
-    $sql = "INSERT INTO apprenants (prenomapprenant, nomapprenant,phone, email, photo) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO apprenants (nomapprenant, prenomapprenant,email,phone, photo) VALUES (?, ?, ?, ?, ?)";
     
     // Préparation de la requête
     $stmt = $connexion->prepare($sql);

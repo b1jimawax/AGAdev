@@ -2,7 +2,7 @@
 <html>
 <?php
 include("../controllers/connexion.php");
-include("../controllers/read.php"); 
+include("../controllers/read.php");
 
 if ($resultat->rowCount() > 0) {
 ?>
@@ -29,12 +29,19 @@ if ($resultat->rowCount() > 0) {
 
 <body>
     <div class="container mt-5">
-        
+
         <div class="conte" style="display:flex;justify-content: space-between;align-items: center;">
-        <img src="../assets/dist/picture/agadev1.png" width=100 height=100 class="img-fluid" alt="hero">
-        <h2 class="text-center">Binevenue Admin </h2>
+            <img src="../assets/dist/picture/agadev1.png" width=100 height=100 class="img-fluid" alt="hero">
+            <h2 class="text-center">Bienvenue Admin</h2>
         </div>
         <a class="btn btn-primary d-block mx-auto my-4" href="ajoute.php"><i class="glyphicon glyphicon-user"></i>   Ajouter un apprenant</a>
+
+        <!-- Ajout du champ de recherche -->
+        <div class="form-group">
+            <label for="searchInput">Rechercher un apprenant par nom :</label>
+            <input type="text" class="form-control" id="searchInput" placeholder="Entrez le nom de l'apprenant">
+        </div>
+
         <table class="table table-striped table-hover">
             <thead class="table-light">
                 <tr>
@@ -68,6 +75,7 @@ if ($resultat->rowCount() > 0) {
                 <?php
                 }
                 ?>
+            </tbody>
         </table>
     <?php
 } else {
@@ -85,8 +93,18 @@ $connexion = null;
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        // Filtrer les résultats du tableau en fonction de la saisie de l'utilisateur
+        $(document).ready(function () {
+            $('#searchInput').on('input', function () {
+                var searchValue = $(this).val().toLowerCase();
+                $('tbody tr').filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(searchValue) > -1)
+                });
+            });
+        });
+    </script>
 </body>
-
-
 
 </html>
