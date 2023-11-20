@@ -113,7 +113,7 @@ include("Controllers/connexion_admin.php");
         </div>
     </form>
     <div class="container">
-        <img src="./assets/dist/picture/agadev1.png" alt="">
+        <!-- <img src="./assets/dist/picture/agadev1.png" alt=""> -->
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
