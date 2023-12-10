@@ -36,7 +36,7 @@ if ($resultat->rowCount() > 0) {
         </div>
         <a class="btn btn-primary d-block mx-auto my-4" href="ajoute.php"><i class="glyphicon glyphicon-user"></i>   Ajouter un apprenant</a>
 
-        <!-- Ajout du champ de recherche -->
+        <!-- champ de recherche -->
         <div class="form-group">
             <label for="searchInput">Rechercher un apprenant par nom :</label>
             <input type="text" class="form-control" id="searchInput" placeholder="Entrez le nom de l'apprenant">
