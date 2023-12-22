@@ -91,20 +91,35 @@
         ?>
             <h2>Modifier les informations de <?php echo htmlspecialchars($row["nomapprenant"]); ?> </h2>
             <form method="post" action="../vue/modifier0.php">
-                <div class="row">
-                <div class="col">
-                <input type="hidden" name="idapprenant" value="<?php echo htmlspecialchars($row["idapprenant"]); ?>">
-                <input type="text" class="form-control" name="nomapprenant" value="<?php echo htmlspecialchars($row["nomapprenant"]); ?>">
-                <input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($row["email"]); ?>">
-                </div>
-                <div class="col">
-                <input type="text" class="form-control" name="prenomapprenant" value="<?php echo htmlspecialchars($row["prenomapprenant"]); ?>">
-                <input type="text" class="form-control" name="phone" value="<?php echo htmlspecialchars($row["phone"]); ?>">
-                <input type="file" class="form-control" name="photo" value="<?php echo htmlspecialchars($row["photo"]); ?>">
-                </div>
-                <br>
-                <input type="submit" class="btn btn-primary" value="Modifier" style="margin-top:10px;">
-            </form>
+    <div class="row">
+        <div class="col">
+            <input type="hidden" name="idapprenant" value="<?php echo htmlspecialchars($row["idapprenant"]); ?>">
+            <input type="text" class="form-control" name="nomapprenant" value="<?php echo htmlspecialchars($row["nomapprenant"]); ?>" required>
+            <input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($row["email"]); ?>" required>
+            <input type="text" class="form-control" name="prenomapprenant" value="<?php echo htmlspecialchars($row["prenomapprenant"]); ?>" required>
+            <input type="text" class="form-control" name="phone" value="<?php echo htmlspecialchars($row["phone"]); ?>" required>
+            <input type="file" class="form-control" name="photo" value="<?php echo htmlspecialchars($row["photo"]); ?>" >
+            
+        </div>
+        <div class="col">
+        <input type="text" class="form-control" name="dateNaiss" value="<?php echo htmlspecialchars($row["dateNaiss"]); ?>" required>
+        <select class="form-control" name="Filière" required>
+                <option value="front-end" <?php echo ($row["Filière"] == "front-end") ? "selected" : ""; ?>>Front-end</option>
+                <option value="back-end" <?php echo ($row["Filière"] == "back-end") ? "selected" : ""; ?>>Back-end</option>
+                <option value="fullstack" <?php echo ($row["Filière"] == "fullstack") ? "selected" : ""; ?>>Fullstack</option>
+            </select>
+            <input type="number" class="form-control" name="Niveau" value="<?php echo htmlspecialchars($row["Niveau"]); ?>" required>
+            <input type="text" class="form-control" name="hobbie" value="<?php echo htmlspecialchars($row["hobbie"]); ?>" required>
+            <select class="form-control" name="sexe" required>
+                <option value="F" <?php echo ($row["sexe"] == "F") ? "selected" : ""; ?>>Femme</option>
+                <option value="H" <?php echo ($row["sexe"] == "H") ? "selected" : ""; ?>>Homme</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Modifier" style="margin-top:10px;">
+</form>
+
         <?php
         } else {
             echo "Erreur lors de la récupération des données de l'apprenant.";
