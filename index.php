@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+<?php
+session_start();
+?>
+
 <html>
 <?php
 include("Controllers/connexion.php");
-include("Controllers/connexion_admin.php");
 ?>   
 <head>
     <meta charset="UTF-8">
@@ -13,6 +15,7 @@ include("Controllers/connexion_admin.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Formulaire de Connexion</title>
+    
     <style>
         body {
             font-family: ;
@@ -99,7 +102,7 @@ include("Controllers/connexion_admin.php");
 
 <body>
     <h2 style="color:white;">AUTHENTIFICATION</h2><br>
-    <form action="controllers/connexion_admin.php" method="post">
+    <form action="Controllers/connexion_admin.php" method="post">
         <div>
             <label for="nom">Nom d'Utilisateur:</label>
             <input type="text" id="nom" name="nom" required>
@@ -112,9 +115,6 @@ include("Controllers/connexion_admin.php");
             <input type="submit" value="Se Connecter">
         </div>
     </form>
-    <div class="container">
-        <!-- <img src="./assets/dist/picture/agadev1.png" alt=""> -->
-    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

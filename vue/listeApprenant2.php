@@ -1,3 +1,6 @@
+<?php
+require_once('../Controllers/verifi.php')
+?>
 <!DOCTYPE html>
 <html>
 <?php
@@ -17,6 +20,7 @@ if ($resultat->rowCount() > 0) {
 
 
     <title>Liste des Apprenants</title>
+    <script src="../Controllers/script.js"></script>
 </head>
 
 <body>
@@ -69,7 +73,7 @@ $connexion = null;
     </div>
 
     <div class="container text-center">
-        <h2><a class="btn btn-secondary" href="../index.php"><i class="glyphicon glyphicon-share"></i>  Déconnexion</a></h2>
+        <h2><a class="btn btn-secondary" href="../Controllers/deconnexion.php"><i class="glyphicon glyphicon-share"></i>  Déconnexion</a></h2>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
