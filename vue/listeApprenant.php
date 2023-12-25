@@ -108,7 +108,7 @@ $connexion = null;
 
     </div>
 
-    <div class="container text-center">
+    <div class="container text-right">
         <h2><a class="btn btn-secondary" href="../Controllers/deconnexion.php"><i class="glyphicon glyphicon-share"></i>  Déconnexion</a></h2>
     </div>
 

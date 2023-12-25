@@ -13,6 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $niveau = $_POST["Niveau"];
     $hobbie = $_POST["hobbie"];
     $sexe = $_POST["sexe"];
+    $photo = $_FILES["img"]["name"];
+    $upload = "../assets/dist/picture/".$photo;
+
+    move_uploaded_file($_FILES["img"]["tmp_name"], $upload);
 
     // Requête SQL préparée pour mettre à jour les données de l'apprenant
     $sql = "UPDATE apprenants 
@@ -24,7 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Filière = :filiere, 
                 Niveau = :niveau, 
                 hobbie = :hobbie, 
-                sexe = :sexe 
+                sexe = :sexe,
+                photo = :photo 
             WHERE idapprenant = :id_apprenant";
 
     // Préparation de la requête
@@ -41,30 +46,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query->bindParam(':niveau', $niveau, PDO::PARAM_INT);
     $query->bindParam(':hobbie', $hobbie, PDO::PARAM_STR);
     $query->bindParam(':sexe', $sexe, PDO::PARAM_STR);
+    $query->bindParam(':photo', $photo, PDO::PARAM_STR);
 
     if ($query->execute()) {
         echo '<div class="container">';
         echo '<div class="alert alert-success" role="alert">';
         echo "Données de l'apprenant mises à jour avec succès";
         echo "</div>";
-        echo '<a class="btn btn-primary" href="listeApprenant.php">Continuer</a>';
+        header("Location: listeApprenant.php");
         echo "</div>";
     } else {
         echo "Erreur lors de la mise à jour de l'apprenant : " . $query->errorInfo()[2];
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/dist/css/bootstrap.min">
-    <title>Mise à jour</title>
-</head>
-<body>
-    <div class="container">
-        <!-- Votre contenu HTML ici -->
-    </div>
-</body>
-</html>

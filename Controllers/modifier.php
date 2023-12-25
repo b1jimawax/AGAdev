@@ -90,7 +90,7 @@
             $row = $query->fetch(PDO::FETCH_ASSOC);
         ?>
             <h2>Modifier les informations de <?php echo htmlspecialchars($row["nomapprenant"]); ?> </h2>
-            <form method="post" action="../vue/modifier0.php">
+            <form method="post" action="../vue/modifier0.php" enctype="multipart/form-data">
     <div class="row">
         <div class="col">
             <input type="hidden" name="idapprenant" value="<?php echo htmlspecialchars($row["idapprenant"]); ?>">
@@ -98,7 +98,7 @@
             <input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($row["email"]); ?>" required>
             <input type="text" class="form-control" name="prenomapprenant" value="<?php echo htmlspecialchars($row["prenomapprenant"]); ?>" required>
             <input type="text" class="form-control" name="phone" value="<?php echo htmlspecialchars($row["phone"]); ?>" required>
-            <input type="file" class="form-control" name="photo" value="<?php echo htmlspecialchars($row["photo"]); ?>" >
+            <input type="file" class="form-control" name="img" value="<?php echo htmlspecialchars($row["photo"]); ?>" >
             
         </div>
         <div class="col">
@@ -119,6 +119,9 @@
     <br>
     <input type="submit" class="btn btn-primary" value="Modifier" style="margin-top:10px;">
 </form>
+    <div class="container text-right">
+        <h2><a class="btn btn-secondary" href="../vue/listeApprenant.php"><i class="glyphicon glyphicon-share"></i> Retouner</a></h2>
+    </div>
 
         <?php
         } else {
