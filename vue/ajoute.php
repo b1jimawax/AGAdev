@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <?php
@@ -65,22 +69,33 @@ include("../Controllers/uplead_image.php");
 <body>
     <h2>Ajouter un apprenant</h2>
     <form method="post" action="../controllers/uplead_image.php" enctype="multipart/form-data">
-        <label for="nomapprenant">Nom de l'apprenant:</label>
-        <input type="text" name="nomapprenant" required>
-
-        <label for="prenomapprenant">Prénom de l'apprenant:</label>
-        <input type="text" name="prenomapprenant" required>
-
-        <label for="email">Adresse email:</label>
-        <input type="text" name="email" required>
-
-        <label for="phone">Phone:</label>
-        <input type="text" name="phone" required>
-
-        <label for="img">Photo de l'apprenant:</label>
-        <input type="file" name="img" required><br><br>
-
-        <input type="submit" name="btnAjout" value="Ajouter l'apprenant">
-    </form>
+    <div class="row">
+        <div class="col">
+            <!-- <input type="hidden" name="idapprenant" > -->
+            <input type="text" class="form-control" name="nomapprenant" required>
+            <input type="text" class="form-control" name="email" required>
+            <input type="text" class="form-control" name="prenomapprenant" required>
+            <input type="text" class="form-control" name="phone" required>
+            <input type="file" class="form-control" name="photo">
+            
+        </div>
+        <div class="col">
+        <input type="text" class="form-control" name="dateNaiss" required>
+        <select class="form-control" name="Filière" required>
+                <option value="front-end">Front-end</option>
+                <option value="back-end">Back-end</option>
+                <option value="fullstack">Fullstack</option>
+            </select>
+            <input type="number" class="form-control" name="Niveau" required>
+            <input type="text" class="form-control" name="hobbie" required>
+            <select class="form-control" name="sexe" required>
+                <option value="F">Femme</option>
+                <option value="H">Homme</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <input type="submit" name="btnAjout" class="btn btn-primary" value="Ajouter un apprenant" style="margin-top:10px;">
+</form>
 </body>
 </html>
