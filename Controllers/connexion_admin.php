@@ -1,5 +1,7 @@
 <?php
+//catte fonction permet d'ouvrir un session dans l'application
 session_start();
+
 include("connexion.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,16 +18,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $utilisateur = $query->fetch(PDO::FETCH_ASSOC);
 
         if ($utilisateur['role'] == 'read_write') {
+            session_start();
             $_SESSION['nom_utilisateur'] = $nom;
             $_SESSION['role'] = 'read_write';
+            $_SESSION["admin_logged_in"] = true;
             header("Location: ../vue/listeApprenant.php?role=read_write");
         } elseif ($utilisateur['role'] == 'read_only') {
+            session_start();
             $_SESSION['nom_utilisateur'] = $nom;
             $_SESSION['role'] = 'read_only';
+            $_SESSION["admin_logged_in"] = true;
             header("Location: ../vue/listeApprenant2.php?role=read_only");
-        } else {
+        } else{
             echo "Vous n'avez pas les droits appropriés pour accéder à cette ressource.";
         }
     }
 }
 ?>
+
