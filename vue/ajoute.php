@@ -1,15 +1,15 @@
 <?php
-session_start();
+require_once('../controllers/verifi.php')
 ?>
-
 <!DOCTYPE html>
 <html>
 <?php
-include("../Controllers/uplead_image.php");
+include("../controllers/uplead_image.php");
 ?>    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/dist/css/style.css">
     <link rel="stylesheet" href="../assets/dist/css/bootstrap.min">
     <title>Ajouter un apprenant</title>
     <style>
@@ -26,8 +26,7 @@ include("../Controllers/uplead_image.php");
         }
 
         form {
-            text-align: left;
-            max-width: 400px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             background-color: #fff;
@@ -82,8 +81,8 @@ include("../Controllers/uplead_image.php");
         <div class="col">
         <input type="date" class="form-control" placeholder="Date de naissance" name="dateNaiss" required>
         <select class="form-control" placeholder="Choix de filière" name="Filière" required>
-                <option value="front-end">Front-end</option>
-                <option value="back-end">Back-end</option>  
+                <option value="frontend">Fron-tend</option>
+                <option value="backend">Back-end</option>  
                 <option value="fullstack">Fullstack</option>
             </select>
             <input type="number" class="form-control" placeholder="Niveau apprenant" name="Niveau" required>
@@ -98,7 +97,7 @@ include("../Controllers/uplead_image.php");
     <input type="submit" name="btnAjout" class="btn btn-primary" value="Ajouter un apprenant" style="margin-top:10px;">
 </form><br>
 <div class="container text-right">
-        <h2><a class="btn btn-secondary" href="../vue/listeApprenant.php"><i class="glyphicon glyphicon-share"></i> Retouner</a></h2>
+        <h2><a class="btn btn-secondary" href="../vue/listeApprenant.php"><i class="glyphicon glyphicon-share"></i> Retourner</a></h2>
     </div>
 </body>
 </html>

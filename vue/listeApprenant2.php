@@ -1,17 +1,18 @@
 <?php
-require_once('../Controllers/verifi.php')
+require_once('../controllers/verifi.php')
 ?>
 <!DOCTYPE html>
 <html>
 <?php
-include("../Controllers/connexion.php");
-include("../Controllers/read.php");
+include("../controllers/connexion.php");
+include("../controllers/read.php");
 
 if ($resultat->rowCount() > 0) {
 ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/dist/css/style.css">
     <link rel="stylesheet" href="../assets/dist/css/bootstrap.min">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +38,7 @@ if ($resultat->rowCount() > 0) {
 
         <div class="conte" style="display:flex;justify-content: space-between;align-items: center;">
             <img src="../assets/dist/picture/agadev1.png" width=100 height=100 class="img-fluid" alt="hero">
-            <h2 class="text-center">Bienvenue Admin</h2>
+            <h2 class="text-center">Bienvenue apprenant</h2>
         </div>
 
         <!-- champ de recherche -->
@@ -102,7 +103,7 @@ $connexion = null;
     </div>
 
     <div class="container text-right">
-        <h2><a class="btn btn-secondary" href="../Controllers/deconnexion.php"><i class="glyphicon glyphicon-share"></i>  Déconnexion</a></h2>
+        <h2><a class="btn btn-secondary" href="../controllers/deconnexion.php"><i class="glyphicon glyphicon-share"></i>  Déconnexion</a></h2>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
