@@ -29,9 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['role'] = 'read_only';
             $_SESSION["admin_logged_in"] = true;
             header("Location: ../vue/listeApprenant2.php?role=read_only");
-        } else {
+        } else{
             echo "Vous n'avez pas les droits appropriés pour accéder à cette ressource.";
         }
     }
 }
 ?>
+

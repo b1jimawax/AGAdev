@@ -1,21 +1,24 @@
 <?php
-require_once('../Controllers/verifi.php')
+require_once('../controllers/verifi.php')
 ?>
 <!DOCTYPE html>
 <html>
 <?php
-include("../Controllers/connexion.php");
-include("../Controllers/read.php");
+include("../controllers/connexion.php");
+include("../controllers/read.php");
 
 if ($resultat->rowCount() > 0) {
 ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/dist/css/style.css">
     <link rel="stylesheet" href="../assets/dist/css/bootstrap.min">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
 
     <title>Liste des Apprenants</title>
 
@@ -39,8 +42,9 @@ if ($resultat->rowCount() > 0) {
             <img src="../assets/dist/picture/agadev1.png" width=100 height=100 class="img-fluid" alt="hero">
             <h2 class="text-center">Bienvenue Admin</h2>
         </div>
-        <a class="btn btn-primary d-block mx-auto my-4" href="ajoute.php"><i class="glyphicon glyphicon-user"></i>   Ajouter un apprenant</a>
-
+        <div class="container text-right">
+        <a class="btn btn-primary d-block my-4" href="ajoute.php"><i class="glyphicon glyphicon-user"></i>   Ajouter un apprenant</a>
+        </div>
         <!-- champ de recherche -->
         <div class="form-group">
             <label for="searchInput">Rechercher un apprenant par nom :</label>
@@ -58,8 +62,7 @@ if ($resultat->rowCount() > 0) {
             <th style="
     padding-right: 60px;
 ">Phone</th>
-            <th style="
-    width: 90px;
+            <th style="width: 100px;
 ">Date de Naiss</th>
             <th>Filière</th>
             <th>Niveau</th>
@@ -108,8 +111,8 @@ $connexion = null;
 
     </div>
 
-    <div class="container text-center">
-        <h2><a class="btn btn-secondary" href="../Controllers/deconnexion.php"><i class="glyphicon glyphicon-share"></i>  Déconnexion</a></h2>
+    <div class="container text-right">
+        <h2><a class="btn btn-secondary" href="../controllers/deconnexion.php"><i class="glyphicon glyphicon-share"></i>  Déconnexion</a></h2>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

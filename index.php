@@ -3,14 +3,12 @@ session_start();
 ?>
 
 <html>
-<?php
-include("Controllers/connexion.php");
-?>   
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap core CSS -->
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/dist/css/style.css">
+    <link rel="stylesheet" href="../assets/dist/css/bootstrap.min">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -102,15 +100,16 @@ include("Controllers/connexion.php");
 
 <body>
     <h2 style="color:white;">AUTHENTIFICATION</h2><br>
-    <form action="Controllers/connexion_admin.php" method="post">
+    <form action="controllers/connexion_admin.php" method="post">
         <div>
             <label for="nom">Nom d'Utilisateur:</label>
-            <input type="text" id="nom" name="nom" required>
+            <input type="text" placeholder="apprenant" id="nom" name="nom" required>
         </div>
         <div>
             <label for="pwd">Mot de Passe:</label>
-            <input type="password" id="pwd" name="pwd" required>
+            <input type="password" placeholder="motdepasse1" id="pwd" name="pwd" required>
         </div><br>
+        <p>Les clés sont dans les inputs*</p>
         <div>
             <input type="submit" value="Se Connecter">
         </div>

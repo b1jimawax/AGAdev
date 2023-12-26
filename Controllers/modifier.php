@@ -1,10 +1,15 @@
+<?php
+require_once('../controllers/verifi.php')
+ 
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/dist/css/style.css">
+    <link rel="stylesheet" href="../assets/dist/css/bootstrap.min">
     <title>Modifier apprenant</title>
     <style>
         body {
@@ -64,18 +69,8 @@
 <body>
     <div class="container">
         <?php
-        $serveur = "localhost:3306"; // Nom du serveur MySQL
-        $utilisateur = "root"; // Nom d'utilisateur MySQL
-        $mot_de_passe = ""; // Mot de passe MySQL
-        $base_de_donnees = "ecole41"; // Nom de la base de données
 
-        try {
-            $connexion = new PDO("mysql:host=$serveur;dbname=$base_de_donnees", $utilisateur, $mot_de_passe);
-            $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // echo "Connexion réussie";
-        } catch (PDOException $e) {
-            echo "Erreur de connexion : " . $e->getMessage();
-        }
+        include("connexion.php");
 
         // Récupérer l'ID de l'apprenant depuis l'URL
         $idapprenant = $_GET["id"];
@@ -90,7 +85,7 @@
             $row = $query->fetch(PDO::FETCH_ASSOC);
         ?>
             <h2>Modifier les informations de <?php echo htmlspecialchars($row["nomapprenant"]); ?> </h2>
-            <form method="post" action="../vue/modifier0.php">
+            <form method="post" action="../vue/modifier0.php" enctype="multipart/form-data">
     <div class="row">
         <div class="col">
             <input type="hidden" name="idapprenant" value="<?php echo htmlspecialchars($row["idapprenant"]); ?>">
@@ -98,14 +93,14 @@
             <input type="text" class="form-control" name="email" value="<?php echo htmlspecialchars($row["email"]); ?>" required>
             <input type="text" class="form-control" name="prenomapprenant" value="<?php echo htmlspecialchars($row["prenomapprenant"]); ?>" required>
             <input type="text" class="form-control" name="phone" value="<?php echo htmlspecialchars($row["phone"]); ?>" required>
-            <input type="file" class="form-control" name="photo" value="<?php echo htmlspecialchars($row["photo"]); ?>" >
+            <input type="file" class="form-control" name="img" value="<?php echo htmlspecialchars($row["photo"]); ?>" >
             
         </div>
         <div class="col">
         <input type="text" class="form-control" name="dateNaiss" value="<?php echo htmlspecialchars($row["dateNaiss"]); ?>" required>
         <select class="form-control" name="Filière" required>
-                <option value="front-end" <?php echo ($row["Filière"] == "front-end") ? "selected" : ""; ?>>Front-end</option>
-                <option value="back-end" <?php echo ($row["Filière"] == "back-end") ? "selected" : ""; ?>>Back-end</option>
+                <option value="frontend" <?php echo ($row["Filière"] == "front-end") ? "selected" : ""; ?>>Front-end</option>
+                <option value="backend" <?php echo ($row["Filière"] == "back-end") ? "selected" : ""; ?>>Back-end</option>
                 <option value="fullstack" <?php echo ($row["Filière"] == "fullstack") ? "selected" : ""; ?>>Fullstack</option>
             </select>
             <input type="number" class="form-control" name="Niveau" value="<?php echo htmlspecialchars($row["Niveau"]); ?>" required>
@@ -119,6 +114,9 @@
     <br>
     <input type="submit" class="btn btn-primary" value="Modifier" style="margin-top:10px;">
 </form>
+    <div class="container text-right">
+        <h2><a class="btn btn-secondary" href="../vue/listeApprenant.php"><i class="glyphicon glyphicon-share"></i> Retourner</a></h2>
+    </div>
 
         <?php
         } else {
